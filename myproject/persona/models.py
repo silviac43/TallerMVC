@@ -24,4 +24,4 @@ class Persona(models.Model):
     usuario=models.CharField(max_length=50)
     contrasena=models.CharField(max_length=50)
     id_tipo_documento=models.ForeignKey(TipoDocumento, on_delete=models.CASCADE) 
-    lugar_residencia=models.ForeignKey(Ciudad, on_delete=models.CASCADE)
+    ciudad=models.ForeignKey(Ciudad, on_delete=models.CASCADE)

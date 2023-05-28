@@ -14,17 +14,63 @@
 </head>
 
 <body>
-    <button>><a href="http://127.0.0.1:8000/persona/new">Crear nuevo usuario</a></button>
+    <h1>Menu principal de la base de datos</h1>
+
+    <br>
+
+    <p>Lista de ciudades (Para registrarse debe tener en cuenta el ID)</p>
+
+    {% if ciudades %}
+    <ul>
+        {% for ciudad in ciudades %}
+        <li><b>Id: </b> {{ciudad.id}} <b>Nombre: </b>{{ciudad.nombre}} <b>Descripcion: </b>{{ciudad.descripcion}}</li>
+        <a href="http://127.0.0.1:8000/persona/ciudad/delete/{{ciudad.id}}">Borrar ciudad</a>
+        <a href="http://127.0.0.1:8000/persona/ciudad/update/{{ciudad.id}}">Actualizar ciudad</a>
+        {% endfor %}
+    </ul>
+    
+    {% endif %}
+
+    <button>><a href="http://127.0.0.1:8000/persona/ciudad/new">Crear nueva ciudad</a></button>
+
+    <br>
+    <br>
+
+    <p>Lista de tipos de documentos (Para registrarse debe tener en cuenta el ID)</p>
+
+    {% if tipos_documento %}
+    <ul>
+        {% for tipo_documento in tipos_documento %}
+        <li><b>Id: </b> {{tipo_documento.id}} <b>Nombre: </b>{{tipo_documento.nombre}} <b>Descripcion: </b>{{tipo_documento.descripcion}}</li>
+        <a href="http://127.0.0.1:8000/persona/tipodoc/delete/{{tipo_documento.id}}">Borrar tipo documento</a>
+        <a href="http://127.0.0.1:8000/persona/tipodoc/update/{{tipo_documento.id}}">Actualizar tipo documento</a>
+        {% endfor %}
+    </ul>
+    
+    {% endif %}
+
+    <button>><a href="http://127.0.0.1:8000/persona/tipodoc/new">Crear nuevo tipo documento</a></button>
+
+    <br>
+    <br>
+
+    <p>Lista de personas en la base de datos</p>
+
 
     {% if personas %}
     <ul>
         {% for persona in personas %}
-        <li><b>Id:</b> {{persona.id}} <b>Nombre:</b>{{persona.nombres}} <b>Ciudad:</b> {{persona.lugar_residencia.nombre}}</li>
+        <li><b>Nombre: </b>{{persona.nombres}} <b>Apellido: </b> {{persona.apellidos}} <b>Usuario: </b> {{persona.usuario}} <b>Ciudad: </b> {{persona.ciudad.nombre}}</li>
         <a href="http://127.0.0.1:8000/persona/delete/{{persona.id}}">Borrar persona</a>
         <a href="http://127.0.0.1:8000/persona/update/{{persona.id}}">Actualizar persona</a>
         {% endfor %}
     </ul>
+    
     {% endif %}
+
+    <button>><a href="http://127.0.0.1:8000/persona/new">Crear nuevo usuario</a></button>
+
+
 </body>
 
 </html>

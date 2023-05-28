@@ -2,7 +2,6 @@ from django import forms
 from .models import Persona,Ciudad,TipoDocumento
 
 class PersonaForm(forms.ModelForm):
-
     class Meta:
         model =  Persona
 
@@ -16,7 +15,7 @@ class PersonaForm(forms.ModelForm):
             'usuario',
             'contrasena',
             'id_tipo_documento',
-            'lugar_residencia',
+            'ciudad',
         ]
 
         labels={
@@ -29,7 +28,7 @@ class PersonaForm(forms.ModelForm):
             'usuario':'Usuario',
             'contrasena':'Contrasena',
             'id_tipo_documento':'Tipodoc',
-            'lugar_residencia':'Residencia',
+            'ciudad':'Residencia',
         }
 
         widgets = {
@@ -42,5 +41,43 @@ class PersonaForm(forms.ModelForm):
             'usuario':forms.TextInput(attrs={'class':'form-control','required':''}),
             'contrasena':forms.TextInput(attrs={'class':'form-control','required':''}),
             'id_tipo_documento':forms.TextInput(attrs={'class':'form-control','required':''}),
-            'lugar_residencia':forms.TextInput(attrs={'class':'form-control','required':''}),
+            'ciudad':forms.TextInput(attrs={'class':'form-control','required':''}),
+        }
+
+class CiudadForm(forms.ModelForm):
+    class Meta:
+        model =  Ciudad
+
+        fields=[
+            'nombre',
+            'descripcion',
+        ]
+
+        labels={
+            'nombres':'Nombre',
+            'descripcion':'Descripcion'
+        }
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control','required':''}),
+            'descripcion':forms.TextInput(attrs={'class':'form-control','required':''}),
+        }
+
+class TipoDocForm(forms.ModelForm):
+    class Meta:
+        model =  Ciudad
+
+        fields=[
+            'nombre',
+            'descripcion',
+        ]
+
+        labels={
+            'nombres':'Nombre',
+            'descripcion':'Descripcion'
+        }
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control','required':''}),
+            'descripcion':forms.TextInput(attrs={'class':'form-control','required':''}),
         }
