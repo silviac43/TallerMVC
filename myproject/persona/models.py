@@ -5,10 +5,14 @@ from django.db import models
 class TipoDocumento(models.Model):
     nombre=models.CharField(max_length=30)
     descripcion=models.CharField(max_length=30)
+    def str(self):
+        return self.nombre
 
 class Ciudad(models.Model):
     nombre=models.CharField(max_length=50)
     descripcion=models.CharField(max_length=50) 
+    def str(self):
+        return self.nombre
 
 class Persona(models.Model):
     nombres=models.CharField(max_length=50)

@@ -11,20 +11,19 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     <title>Registro usuario</title>
+
+ 
 </head>
 
 <body>
-    <button>><a href="http://127.0.0.1:8000/persona/new">Crear nuevo usuario</a></button>
 
-    {% if personas %}
-    <ul>
-        {% for persona in personas %}
-        <li><b>Id:</b> {{persona.id}} <b>Nombre:</b>{{persona.nombres}} <b>Ciudad:</b> {{persona.lugar_residencia.nombre}}</li>
-        <a href="http://127.0.0.1:8000/persona/delete/{{persona.id}}">Borrar persona</a>
-        <a href="http://127.0.0.1:8000/persona/update/{{persona.id}}">Actualizar persona</a>
-        {% endfor %}
-    </ul>
-    {% endif %}
+    <div class="container">
+        <h1>Actualizar usuario:</h1>
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form}}
+            <input type="submit"  value="Submit">
+        </form>
+    </div>
 </body>
-
 </html>
