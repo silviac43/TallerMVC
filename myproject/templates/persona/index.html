@@ -14,10 +14,13 @@
 </head>
 
 <body>
+    <button>><a href="http://127.0.0.1:8000/persona/new">Crear nuevo usuario</a></button>
+
     {% if personas %}
     <ul>
         {% for persona in personas %}
-        <li><b>Nombre:</b>{{persona.nombres}} <b>Ciudad:</b> {{persona.lugar_residencia.nombre}}</li>
+        <li><b>Id:</b> {{persona.id}} <b>Nombre:</b>{{persona.nombres}} <b>Ciudad:</b> {{persona.lugar_residencia.nombre}}</li>
+        <a href="http://127.0.0.1:8000/persona/delete/{{persona.id}}">Borrar persona</a>
         {% endfor %}
     </ul>
     {% endif %}

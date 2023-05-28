@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
+from django.contrib import messages
 from django.urls import reverse
 from .models import Persona,Ciudad,TipoDocumento
 from .forms import PersonaForm
@@ -35,7 +36,17 @@ def new_persona(request):
             persona=Persona(nombres=nombres,apellidos=apellidos,documento=documento,fecha_nac=fecha_nac,email=email
                             ,telefono=telefono,usuario=usuario,contrasena=contrasena,id_tipo_documento=tipodoc,lugar_residencia=residencia)
             persona.save()
-            return HttpResponseRedirect(reverse('persona'))
+            next = request.POST.get('next','/persona')
+            return HttpResponseRedirect(next)
     else:
         form = PersonaForm()
     return render(request,'persona/create_persona.html',{'form':form})
+
+def delete_persona(request, id):
+    persona = get_object_or_404(Persona, pk=id)
+    context = {'persona': persona}    
+
+    if request.method=='GET':
+        persona.delete()
+        messages.success(request,  'Se ha eliminado a la persona exitosamente')
+        return redirect('')
