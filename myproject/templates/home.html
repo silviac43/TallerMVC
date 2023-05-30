@@ -7,7 +7,55 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Pagina de inicio bonita que referencie a index</p>
+    
+    {% block navbar %}
 
+    <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          border: 1px solid #e7e7e7;
+          background-color: #f3f3f3;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: #666;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #ddd;
+        }
+        
+        li a.active {
+          color: white;
+          background-color: #04AA6D;
+        }
+        </style>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="cointainer-fluid">
+        
+        <div class="collpase navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:8000/persona">Registro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="integrantes.html">Integrantes</a>
+            </li>
+    {% endblock navbar %}
 </body>
 </html>
