@@ -10,3 +10,8 @@ def index(request):
     }
     return HttpResponse(template.render(context,request))
 
+def integrantes(request):
+    template=loader.get_template('integrantes.html')
+    context={
+    }
+    return HttpResponse(template.render(context,request))
