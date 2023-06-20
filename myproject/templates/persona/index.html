@@ -28,6 +28,49 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
+      .subelegant-title {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        color: #FFFFFF;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 10px;
+        background-color: #007bff;
+        border: 2px solid #FFFFFF;
+        border-radius: 5px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-borde {
+        padding: .375rem .75rem;
+        border: 2px solid #007bff;
+        border-radius: .25rem;
+        color: #007bff;
+        transition: color .15s ease-in-out,
+        background-color .15s ease-in-out;
+      }
+      
+      .btn-borde:hover, .btn-borde:active, .btn-borde:focus {
+        color: #fff;
+        background-color: #007bff;
+      }
+
+      .btn-bootstrap {
+        padding: .375rem .75rem;
+        border-radius: .25rem;
+        background-color: #51D1F6;
+        color: #fff;
+        transition: background-color .15s ease-in-out;
+      }
+      
+      .btn-bootstrap:hover, .btn-bootstrap:focus {
+        background-color: #0069d9;
+      }
+      
+      .btn-bootstrap:active {
+        background-color: #0062cc;
+      }
       
 </style>    
 <body>
@@ -35,57 +78,86 @@
 
     <br>
 
-    <p>Lista de ciudades (Para registrarse debe tener en cuenta el ID)</p>
+    <h3 class="subelegant-title">Lista de ciudades (Para registrarse debe tener en cuenta el ID)</h3>
 
     {% if ciudades %}
     <ul>
         {% for ciudad in ciudades %}
-        <li><b>Id: </b> {{ciudad.id}} <b>Nombre: </b>{{ciudad.nombre}} <b>Descripcion: </b>{{ciudad.descripcion}}</li>
-        <a href="http://127.0.0.1:8000/persona/ciudad/delete/{{ciudad.id}}">Borrar ciudad</a>
-        <a href="http://127.0.0.1:8000/persona/ciudad/update/{{ciudad.id}}">Actualizar ciudad</a>
+        <center>
+        <b>Id: </b> {{ciudad.id}} &nbsp;<br><b>Nombre: </b>{{ciudad.nombre}} &nbsp;<br><b> Descripcion: </b>{{ciudad.descripcion}}
+        <br>
+        <br>
+        <a href="http://127.0.0.1:8000/persona/ciudad/delete/{{ciudad.id}}"><button id="boton1" class="btn btn-borde" type="button">Borrar ciudad</button></a>&nbsp;
+        &nbsp;
+        <a href="http://127.0.0.1:8000/persona/ciudad/update/{{ciudad.id}}"><button id="boton1" class="btn btn-borde" type="button">Actualizar ciudad</button></a>
+        <hr>
+        </center>
         {% endfor %}
     </ul>
     
     {% endif %}
-
-    <button>><a href="http://127.0.0.1:8000/persona/ciudad/new">Crear nueva ciudad</a></button>
-
+    
+    <center>
+    <a href="http://127.0.0.1:8000/persona/ciudad/new">
+       <button id="btn2" class="btn btn-bootstrap" type="button">Crear nueva ciudad</button>
+    </a>
+    </center>
     <br>
     <br>
 
-    <p>Lista de tipos de documentos (Para registrarse debe tener en cuenta el ID)</p>
+    <h3 class="subelegant-title">Lista de tipos de documentos (Para registrarse debe tener en cuenta el ID)</h3>
 
     {% if tipos_documento %}
     <ul>
         {% for tipo_documento in tipos_documento %}
-        <li><b>Id: </b> {{tipo_documento.id}} <b>Nombre: </b>{{tipo_documento.nombre}} <b>Descripcion: </b>{{tipo_documento.descripcion}}</li>
-        <a href="http://127.0.0.1:8000/persona/tipodoc/delete/{{tipo_documento.id}}">Borrar tipo documento</a>
-        <a href="http://127.0.0.1:8000/persona/tipodoc/update/{{tipo_documento.id}}">Actualizar tipo documento</a>
+        <center>
+        <b>Id: </b> {{tipo_documento.id}} &nbsp;<br><b> Nombre: </b>{{tipo_documento.nombre}} &nbsp;<br><b> Descripcion: </b>{{tipo_documento.descripcion}}
+        <br>
+        <br>
+        <a href="http://127.0.0.1:8000/persona/tipodoc/delete/{{tipo_documento.id}}"><button id="boton1" class="btn btn-borde" type="button">Borrar tipo documento</button></a>&nbsp;
+        &nbsp;
+        <a href="http://127.0.0.1:8000/persona/tipodoc/update/{{tipo_documento.id}}"><button id="boton1" class="btn btn-borde" type="button">Actualizar tipo documento</button></a>
+        <hr>
+        </center>
         {% endfor %}
     </ul>
     
     {% endif %}
 
-    <button>><a href="http://127.0.0.1:8000/persona/tipodoc/new">Crear nuevo tipo documento</a></button>
+    <center>
+    <a href="http://127.0.0.1:8000/persona/tipodoc/new">
+       <button id="btn2" class="btn btn-bootstrap" type="button">Crear nuevo tipo documento</button>
+    </a>
+    </center>
 
     <br>
     <br>
 
-    <p>Lista de personas en la base de datos</p>
+    <h3 class="subelegant-title">Lista de personas en la base de datos</h3>
 
 
     {% if personas %}
     <ul>
         {% for persona in personas %}
-        <li><b>Nombre: </b>{{persona.nombres}} <b>Apellido: </b> {{persona.apellidos}} <b>Usuario: </b> {{persona.usuario}} <b>Ciudad: </b> {{persona.ciudad.nombre}}</li>
-        <a href="http://127.0.0.1:8000/persona/delete/{{persona.id}}">Borrar persona</a>
-        <a href="http://127.0.0.1:8000/persona/update/{{persona.id}}">Actualizar persona</a>
+        <center>
+        <b>Nombre: </b>{{persona.nombres}} &nbsp;<br><b>Apellido: </b> {{persona.apellidos}} &nbsp;<br><b>Usuario: </b> {{persona.usuario}} <br><b>Ciudad: </b> {{persona.ciudad.nombre}}
+        <br>
+        <br>
+        <a href="http://127.0.0.1:8000/persona/delete/{{persona.id}}"><button id="boton1" class="btn btn-borde" type="button">Borrar persona</button></a>&nbsp;
+        &nbsp;  
+        <a href="http://127.0.0.1:8000/persona/update/{{persona.id}}"><button id="boton1" class="btn btn-borde" type="button">Actualizar persona</button></a>
+        <hr>
+        </center>
         {% endfor %}
     </ul>
     
     {% endif %}
 
-    <button><a href="http://127.0.0.1:8000/persona/new">Crear nuevo usuario</a></button>
+    <center>
+    <a href="http://127.0.0.1:8000/persona/new">
+        <button id="btn2" class="btn btn-bootstrap" type="button">Crear nuevo usuario</button>
+    </a>
+    </center>
 
 
 </body>
